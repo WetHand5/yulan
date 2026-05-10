@@ -1,0 +1,658 @@
+[
+  {
+    "source": "品牌logo.png",
+    "output": "public/images/logo/logo.png",
+    "width": 744,
+    "height": 331,
+    "format": "png",
+    "category": "logo"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (1).png",
+    "output": "public/images/ip/magie-01.webp",
+    "width": 1200,
+    "height": 411,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (10).png",
+    "output": "public/images/ip/magie-02.webp",
+    "width": 867,
+    "height": 810,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (11).png",
+    "output": "public/images/ip/magie-03.webp",
+    "width": 1200,
+    "height": 1022,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (12).png",
+    "output": "public/images/ip/magie-04.webp",
+    "width": 1200,
+    "height": 1912,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (13).png",
+    "output": "public/images/ip/magie-05.webp",
+    "width": 1200,
+    "height": 1394,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (14).png",
+    "output": "public/images/ip/magie-06.webp",
+    "width": 1065,
+    "height": 1014,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (15).png",
+    "output": "public/images/ip/magie-07.webp",
+    "width": 897,
+    "height": 984,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (16).png",
+    "output": "public/images/ip/magie-08.webp",
+    "width": 1200,
+    "height": 1519,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (17).png",
+    "output": "public/images/ip/magie-09.webp",
+    "width": 1200,
+    "height": 993,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (18).png",
+    "output": "public/images/ip/magie-10.webp",
+    "width": 1200,
+    "height": 631,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (19).png",
+    "output": "public/images/ip/magie-11.webp",
+    "width": 877,
+    "height": 1128,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (2).png",
+    "output": "public/images/ip/magie-12.webp",
+    "width": 1200,
+    "height": 1368,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (20).png",
+    "output": "public/images/ip/magie-13.webp",
+    "width": 1157,
+    "height": 911,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (21).png",
+    "output": "public/images/ip/magie-14.webp",
+    "width": 976,
+    "height": 1094,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (22).png",
+    "output": "public/images/ip/magie-15.webp",
+    "width": 1068,
+    "height": 1292,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "品牌IP/ip-magie-  (23).png",
+    "output": "public/images/ip/magie-16.webp",
+    "width": 1200,
+    "height": 1254,
+    "format": "webp",
+    "category": "ip"
+  },
+  {
+    "source": "产品图/丝巾/丝巾- (1).jpg",
+    "output": "public/images/products/scarf/scarf-1.webp",
+    "width": 900,
+    "height": 900,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/丝巾/丝巾- (2).jpg",
+    "output": "public/images/products/scarf/scarf-2.webp",
+    "width": 900,
+    "height": 900,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/丝巾/效果图-丝巾- (1).png",
+    "output": "public/images/products/scarf/scarf-render-1.webp",
+    "width": 900,
+    "height": 675,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/丝巾/效果图-丝巾- (2).png",
+    "output": "public/images/products/scarf/scarf-render-2.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/丝巾/效果图-丝巾- (3).png",
+    "output": "public/images/products/scarf/scarf-render-3.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/丝巾/效果图-丝巾- (4).png",
+    "output": "public/images/products/scarf/scarf-render-4.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "scarf"
+  },
+  {
+    "source": "产品图/刺绣贴/刺绣贴- (1).png",
+    "output": "public/images/products/embroidery-patch/embroidery-patch-1.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "embroidery-patch"
+  },
+  {
+    "source": "产品图/刺绣贴/刺绣贴- (2).png",
+    "output": "public/images/products/embroidery-patch/embroidery-patch-2.webp",
+    "width": 900,
+    "height": 564,
+    "format": "webp",
+    "category": "embroidery-patch"
+  },
+  {
+    "source": "产品图/刺绣贴/刺绣贴- (3).png",
+    "output": "public/images/products/embroidery-patch/embroidery-patch-3.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "embroidery-patch"
+  },
+  {
+    "source": "产品图/包挂/包挂- (1).png",
+    "output": "public/images/products/bag-charm/bag-charm-1.webp",
+    "width": 900,
+    "height": 525,
+    "format": "webp",
+    "category": "bag-charm"
+  },
+  {
+    "source": "产品图/包挂/包挂- (2).png",
+    "output": "public/images/products/bag-charm/bag-charm-2.webp",
+    "width": 900,
+    "height": 1226,
+    "format": "webp",
+    "category": "bag-charm"
+  },
+  {
+    "source": "产品图/包挂/包挂- (3).png",
+    "output": "public/images/products/bag-charm/bag-charm-3.webp",
+    "width": 900,
+    "height": 500,
+    "format": "webp",
+    "category": "bag-charm"
+  },
+  {
+    "source": "产品图/包挂/包挂- (4).png",
+    "output": "public/images/products/bag-charm/bag-charm-4.webp",
+    "width": 900,
+    "height": 525,
+    "format": "webp",
+    "category": "bag-charm"
+  },
+  {
+    "source": "产品图/手账/part3/00764f894bff67b78f26749d00f51032.jpg",
+    "output": "public/images/products/journal/journal-01.webp",
+    "width": 900,
+    "height": 657,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/1d00ef38103d37c50586c8fc74fc2382.jpg",
+    "output": "public/images/products/journal/journal-02.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/212ea0861046ee676067808d50aec3a0.jpg",
+    "output": "public/images/products/journal/journal-03.webp",
+    "width": 900,
+    "height": 657,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/39c79f52d8b593f557b3d278ca5d1315.jpg",
+    "output": "public/images/products/journal/journal-04.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/3a0fb9b7414e560e355a012193898385.jpg",
+    "output": "public/images/products/journal/journal-05.webp",
+    "width": 900,
+    "height": 657,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/7200a2127974e960f9d3f9ea34fbf607.jpg",
+    "output": "public/images/products/journal/journal-06.webp",
+    "width": 900,
+    "height": 657,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part3/91bc3c1cf3a5fa9b2b68b6827aeb6dcf.jpg",
+    "output": "public/images/products/journal/journal-07.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part1/手账内页-part1- (1).png",
+    "output": "public/images/products/journal/journal-page-p1-1.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part1/手账内页-part1- (2).png",
+    "output": "public/images/products/journal/journal-page-p1-2.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part1/手账内页-part1- (3).png",
+    "output": "public/images/products/journal/journal-page-p1-3.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part1/手账内页-part1- (4).png",
+    "output": "public/images/products/journal/journal-page-p1-4.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/手账/part1/手账内页-part1- (5).png",
+    "output": "public/images/products/journal/journal-page-p1-5.webp",
+    "width": 900,
+    "height": 656,
+    "format": "webp",
+    "category": "journal"
+  },
+  {
+    "source": "产品图/拖鞋/拖鞋- (1).png",
+    "output": "public/images/products/slippers/slippers-1.webp",
+    "width": 900,
+    "height": 900,
+    "format": "webp",
+    "category": "slippers"
+  },
+  {
+    "source": "产品图/拖鞋/拖鞋- (2).png",
+    "output": "public/images/products/slippers/slippers-2.webp",
+    "width": 900,
+    "height": 650,
+    "format": "webp",
+    "category": "slippers"
+  },
+  {
+    "source": "产品图/毛绒玩具/毛绒玩具- (1).png",
+    "output": "public/images/products/plush/plush-1.webp",
+    "width": 900,
+    "height": 525,
+    "format": "webp",
+    "category": "plush"
+  },
+  {
+    "source": "产品图/毛绒玩具/毛绒玩具- (2).png",
+    "output": "public/images/products/plush/plush-2.webp",
+    "width": 900,
+    "height": 525,
+    "format": "webp",
+    "category": "plush"
+  },
+  {
+    "source": "产品图/毛绒玩具/毛绒玩具- (3).png",
+    "output": "public/images/products/plush/plush-3.webp",
+    "width": 900,
+    "height": 526,
+    "format": "webp",
+    "category": "plush"
+  },
+  {
+    "source": "产品图/毛绒玩具/毛绒玩具- (4).png",
+    "output": "public/images/products/plush/plush-4.webp",
+    "width": 900,
+    "height": 506,
+    "format": "webp",
+    "category": "plush"
+  },
+  {
+    "source": "产品图/毛绒玩具/毛绒玩具- (5).png",
+    "output": "public/images/products/plush/plush-5.webp",
+    "width": 900,
+    "height": 502,
+    "format": "webp",
+    "category": "plush"
+  },
+  {
+    "source": "产品图/沙发抱枕/沙发抱枕.png",
+    "output": "public/images/products/cushion/cushion.webp",
+    "width": 900,
+    "height": 834,
+    "format": "webp",
+    "category": "cushion"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (1).png",
+    "output": "public/images/products/metal-pin/metal-pin-1.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (10).png",
+    "output": "public/images/products/metal-pin/metal-pin-10.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (11).png",
+    "output": "public/images/products/metal-pin/metal-pin-11.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (12).png",
+    "output": "public/images/products/metal-pin/metal-pin-12.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (13).png",
+    "output": "public/images/products/metal-pin/metal-pin-13.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (14).png",
+    "output": "public/images/products/metal-pin/metal-pin-14.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (15).png",
+    "output": "public/images/products/metal-pin/metal-pin-15.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (16).png",
+    "output": "public/images/products/metal-pin/metal-pin-16.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (17).png",
+    "output": "public/images/products/metal-pin/metal-pin-17.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/金属pin/金属pin- (18).png",
+    "output": "public/images/products/metal-pin/metal-pin-18.webp",
+    "width": 900,
+    "height": 600,
+    "format": "webp",
+    "category": "metal-pin"
+  },
+  {
+    "source": "产品图/香氛/香氛.png",
+    "output": "public/images/products/fragrance/fragrance.webp",
+    "width": 900,
+    "height": 900,
+    "format": "webp",
+    "category": "fragrance"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (1).png",
+    "output": "public/images/events/scene-1.webp",
+    "width": 1200,
+    "height": 800,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (2).png",
+    "output": "public/images/events/scene-2.webp",
+    "width": 1024,
+    "height": 1536,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (3).png",
+    "output": "public/images/events/scene-3.webp",
+    "width": 1086,
+    "height": 1448,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (4).png",
+    "output": "public/images/events/scene-4.webp",
+    "width": 1086,
+    "height": 1448,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (5).png",
+    "output": "public/images/events/scene-5.webp",
+    "width": 1200,
+    "height": 900,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (6).png",
+    "output": "public/images/events/scene-6.webp",
+    "width": 1200,
+    "height": 900,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/场景效果图/场景效果图- (7).png",
+    "output": "public/images/events/scene-7.webp",
+    "width": 1200,
+    "height": 900,
+    "format": "webp",
+    "category": "event-scene"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-打卡地图.png",
+    "output": "public/images/events/checkin-map.webp",
+    "width": 1200,
+    "height": 849,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-海报.png",
+    "output": "public/images/events/poster.webp",
+    "width": 1200,
+    "height": 1696,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-门票.png",
+    "output": "public/images/events/ticket.webp",
+    "width": 1200,
+    "height": 1697,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-喷绘.png",
+    "output": "public/images/events/spray-paint.webp",
+    "width": 1200,
+    "height": 849,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-手环1.png",
+    "output": "public/images/events/wristband-1.webp",
+    "width": 1200,
+    "height": 72,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/活动图片-手环2.png",
+    "output": "public/images/events/wristband-2.webp",
+    "width": 1200,
+    "height": 73,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/手环效果图 (1).png",
+    "output": "public/images/events/wristband-render-1.webp",
+    "width": 1200,
+    "height": 674,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "活动图片/活动物料/手环效果图 (2).png",
+    "output": "public/images/events/wristband-render-2.webp",
+    "width": 1200,
+    "height": 674,
+    "format": "webp",
+    "category": "event-material"
+  },
+  {
+    "source": "素材图（占位用）/10.jpg",
+    "output": "public/images/placeholders/placeholder-01.webp",
+    "width": 1200,
+    "height": 875,
+    "format": "webp",
+    "category": "placeholder"
+  },
+  {
+    "source": "素材图（占位用）/8.jpg",
+    "output": "public/images/placeholders/placeholder-02.webp",
+    "width": 1200,
+    "height": 875,
+    "format": "webp",
+    "category": "placeholder"
+  },
+  {
+    "source": "素材图（占位用）/9.jpg",
+    "output": "public/images/placeholders/placeholder-03.webp",
+    "width": 1200,
+    "height": 876,
+    "format": "webp",
+    "category": "placeholder"
+  },
+  {
+    "source": "素材图（占位用）/画板 1 副本 6.jpg",
+    "output": "public/images/placeholders/placeholder-04.webp",
+    "width": 1200,
+    "height": 875,
+    "format": "webp",
+    "category": "placeholder"
+  },
+  {
+    "source": "素材图（占位用）/画板 1 副本.jpg",
+    "output": "public/images/placeholders/placeholder-05.webp",
+    "width": 1200,
+    "height": 875,
+    "format": "webp",
+    "category": "placeholder"
+  },
+  {
+    "source": "素材图（占位用）/e6c66e7703727a70e788a79ed6d66a4b.png",
+    "output": "public/images/placeholders/placeholder-06.webp",
+    "width": 1200,
+    "height": 875,
+    "format": "webp",
+    "category": "placeholder"
+  }
+]

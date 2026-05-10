@@ -1,0 +1,123 @@
+---
+import { withBase, fixPublicPath } from '../../utils/path';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+
+import productsData from '../../data/products.json';
+
+export function getStaticPaths() {
+  return productsData.map(product => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+const fixedGallery = product.gallery.map((src: string) => fixPublicPath(src));
+---
+
+<BaseLayout title={product.name}>
+  <Navbar />
+
+  <main class="pt-24 pb-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 text-sm text-brand-green/50 font-body">
+        <a href={withBase('/products')} class="hover:text-brand-green transition-colors">春日好物</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-green">{product.name}</span>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Gallery -->
+        <div class="w-full lg:w-1/2">
+          {product.gallery.length > 0 ? (
+            <ImageGallery images={fixedGallery} alt={product.name} />
+          ) : (
+            <div class="aspect-square bg-brand-fresh-green/20 rounded-3xl flex items-center justify-center text-brand-green/30">
+              暂无图片
+            </div>
+          )}
+        </div>
+
+        <!-- Info -->
+        <div class="w-full lg:w-1/2">
+          <span class="inline-block text-sm px-3 py-1 rounded-full bg-brand-fresh-green/40 text-brand-green/70 mb-4">
+            {product.category}
+          </span>
+          <h1 class="font-display text-3xl md:text-4xl font-bold text-brand-green">{product.name}</h1>
+          <p class="mt-2 text-xl font-heading text-brand-gold">&yen;{product.price}</p>
+          <p class="mt-4 text-brand-green/70 font-body leading-relaxed">{product.tagline}</p>
+          <p class="mt-4 text-brand-green/60 font-body leading-relaxed">{product.description}</p>
+
+          <!-- Tags -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            {product.tags.map((tag: string) => (
+              <span class="text-xs px-3 py-1 rounded-full bg-brand-lavender/30 text-brand-green/60">#{tag}</span>
+            ))}
+          </div>
+
+          <!-- Add to cart -->
+          <div class="mt-8">
+            <button
+              id="add-to-cart-detail"
+              class="w-full sm:w-auto px-8 py-3 rounded-full bg-brand-green text-white font-body hover:bg-brand-green/90 transition-colors"
+              data-product-id={product.id}
+              data-product-name={product.name}
+              data-product-price={product.price}
+            >
+              加入购物车
+            </button>
+          </div>
+
+          <!-- Shipping info -->
+          <div class="mt-6 bg-brand-fresh-green/20 rounded-2xl p-4 text-sm text-brand-green/60 font-body">
+            <p>🚚 满99元包邮</p>
+            <p>🎁 精美包装，适合送礼</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back -->
+      <div class="mt-12">
+        <a href={withBase('/products')} class="inline-flex items-center gap-2 text-brand-green/60 hover:text-brand-green transition-colors font-body">
+          ← 返回春日好物
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  const btn = document.getElementById('add-to-cart-detail');
+  btn?.addEventListener('click', () => {
+    const el = btn as HTMLElement;
+    const id = el.dataset.productId!;
+    const name = el.dataset.productName!;
+    const price = Number(el.dataset.productPrice!);
+
+    let cart: Array<{ id: string; name: string; price: number; quantity: number }> = [];
+    try {
+      cart = JSON.parse(localStorage.getItem('yulan-cart') || '[]');
+    } catch {}
+
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ id, name, price, quantity: 1 });
+    }
+
+    localStorage.setItem('yulan-cart', JSON.stringify(cart));
+    window.dispatchEvent(new CustomEvent('cart-updated'));
+
+    const original = el.textContent;
+    el.textContent = '已添加 ✓';
+    setTimeout(() => { el.textContent = original; }, 1500);
+  });
+</script>

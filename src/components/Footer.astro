@@ -1,0 +1,39 @@
+---
+import { withBase } from '../utils/path';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-brand-green/10 mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-heading text-lg font-bold text-brand-green mb-3">遇兰玉兰</h3>
+        <p class="text-sm text-brand-green/70 leading-relaxed">
+          玉见兰不住的美好<br />忙里偷闲也发光
+        </p>
+      </div>
+      <div>
+        <h4 class="font-heading text-sm font-bold text-brand-green mb-3">导航</h4>
+        <ul class="space-y-2 text-sm text-brand-green/70">
+          <li><a href={withBase('/')} class="hover:text-brand-green transition-colors">首页</a></li>
+          <li><a href={withBase('/story')} class="hover:text-brand-green transition-colors">品牌故事</a></li>
+          <li><a href={withBase('/magie')} class="hover:text-brand-green transition-colors">遇见magie</a></li>
+          <li><a href={withBase('/products')} class="hover:text-brand-green transition-colors">春日好物</a></li>
+          <li><a href={withBase('/checkin')} class="hover:text-brand-green transition-colors">玉兰打卡</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading text-sm font-bold text-brand-green mb-3">关注我们</h4>
+        <ul class="space-y-2 text-sm text-brand-green/70">
+          <li>小红书：遇兰玉兰</li>
+          <li>微博：@遇兰玉兰</li>
+          <li>微信公众号：遇兰玉兰</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 pt-6 border-t border-brand-green/10 text-center text-xs text-brand-green/50">
+      <p>&copy; {currentYear} 遇兰玉兰 All Rights Reserved. 仅供非商业展示用途。</p>
+      <p class="mt-1">品牌名「遇兰玉兰」、IP形象「magie/玉兰鸡」、Logo、图片、文案及视觉资产未经授权禁止商用。</p>
+    </div>
+  </div>
+</footer>

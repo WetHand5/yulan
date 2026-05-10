@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import { fixPublicPath, withBase } from '../utils/path';
+
+import ipGalleryData from '../data/ip-gallery.json';
+
+const magieImages = ipGalleryData.images.map(img => ({
+  ...img,
+  src: fixPublicPath(img.src),
+}));
+const magieHero = magieImages[0]?.src || withBase('/images/placeholders/placeholder-01.webp');
+---
+
+<BaseLayout title="遇见magie">
+  <Navbar />
+
+  <main class="pt-24 pb-16">
+    <!-- Hero -->
+    <section class="py-20 px-4 text-center">
+      <div class="max-w-2xl mx-auto">
+        <img src={magieHero} alt="magie" class="w-64 mx-auto rounded-3xl shadow-sm mb-8" loading="lazy" />
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-brand-green">遇见 magie</h1>
+        <p class="mt-4 text-lg text-brand-green/60 font-body">从玉兰花苞里蹦出来的小精灵</p>
+      </div>
+    </section>
+
+    <!-- 性格标签 -->
+    <section class="py-16 px-4 bg-white/30">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeading title="magie 是这样的" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          <div class="bg-brand-pink/30 rounded-3xl p-6 text-center">
+            <div class="text-4xl mb-3">😊</div>
+            <h3 class="font-heading font-bold text-brand-green">乐天派</h3>
+            <p class="text-sm text-brand-green/60 mt-2 font-body">天塌下来当被子盖</p>
+          </div>
+          <div class="bg-brand-lavender/40 rounded-3xl p-6 text-center">
+            <div class="text-4xl mb-3">🍰</div>
+            <h3 class="font-heading font-bold text-brand-green">吃货</h3>
+            <p class="text-sm text-brand-green/60 mt-2 font-body">美食当前绝不矜持</p>
+          </div>
+          <div class="bg-brand-fresh-green/40 rounded-3xl p-6 text-center">
+            <div class="text-4xl mb-3">🌸</div>
+            <h3 class="font-heading font-bold text-brand-green">浪漫</h3>
+            <p class="text-sm text-brand-green/60 mt-2 font-body">每一朵花都值得驻足</p>
+          </div>
+          <div class="bg-brand-light-blue/40 rounded-3xl p-6 text-center">
+            <div class="text-4xl mb-3">💪</div>
+            <h3 class="font-heading font-bold text-brand-green">勇敢</h3>
+            <p class="text-sm text-brand-green/60 mt-2 font-body">做自己就是最大的勇敢</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 口头禅 -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="bg-brand-gold/20 rounded-3xl p-8 inline-block">
+          <p class="font-heading text-2xl md:text-3xl text-brand-green leading-relaxed">
+            "胖点又怎样，开心最重要，<br />一起去春天呀"
+          </p>
+          <p class="mt-4 text-sm text-brand-green/50 font-body">—— magie 的口头禅</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 成长时间轴 -->
+    <section class="py-16 px-4 bg-white/30">
+      <div class="max-w-3xl mx-auto">
+        <SectionHeading title="magie 的成长" />
+        <div class="mt-8 space-y-0">
+          <!-- Timeline -->
+          <div class="relative">
+            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-brand-light-green"></div>
+
+            <div class="relative flex flex-col md:flex-row items-start mb-12">
+              <div class="md:w-1/2 md:pr-8 md:text-right pl-12 md:pl-0">
+                <div class="bg-brand-fresh-green/30 rounded-2xl p-5">
+                  <h3 class="font-heading font-bold text-brand-green">花苞形态</h3>
+                  <p class="text-sm text-brand-green/60 mt-1 font-body">在春天的枝头，magie还是一颗安静的玉兰花苞</p>
+                </div>
+              </div>
+              <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-brand-fresh-green border-2 border-white"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row-reverse items-start mb-12">
+              <div class="md:w-1/2 md:pl-8 pl-12 md:pl-8">
+                <div class="bg-brand-pink/30 rounded-2xl p-5">
+                  <h3 class="font-heading font-bold text-brand-green">幻化诞生</h3>
+                  <p class="text-sm text-brand-green/60 mt-1 font-body">一个春天的清晨，花苞突然蹦出一只圆滚滚的小精灵</p>
+                </div>
+              </div>
+              <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-brand-pink border-2 border-white"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-start mb-12">
+              <div class="md:w-1/2 md:pr-8 md:text-right pl-12 md:pl-0">
+                <div class="bg-brand-lavender/40 rounded-2xl p-5">
+                  <h3 class="font-heading font-bold text-brand-green">被误叫"玉兰鸡"</h3>
+                  <p class="text-sm text-brand-green/60 mt-1 font-body">圆滚滚的身材让人忍不住叫她"玉兰鸡"，她撅了撅嘴</p>
+                </div>
+              </div>
+              <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-brand-lavender border-2 border-white"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row-reverse items-start mb-12">
+              <div class="md:w-1/2 md:pl-8 pl-12 md:pl-8">
+                <div class="bg-brand-gold/30 rounded-2xl p-5">
+                  <h3 class="font-heading font-bold text-brand-green">接纳自我</h3>
+                  <p class="text-sm text-brand-green/60 mt-1 font-body">"胖点又怎样？" magie想通了，做自己最快乐</p>
+                </div>
+              </div>
+              <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-brand-gold border-2 border-white"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-start">
+              <div class="md:w-1/2 md:pr-8 md:text-right pl-12 md:pl-0">
+                <div class="bg-brand-fresh-green/40 rounded-2xl p-5">
+                  <h3 class="font-heading font-bold text-brand-green">乐乐呵呵</h3>
+                  <p class="text-sm text-brand-green/60 mt-1 font-body">从此magie带着她的乐观和好奇心，去春天，去感受春天</p>
+                </div>
+              </div>
+              <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-brand-green border-2 border-white"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IP 图库 -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <SectionHeading title="magie 图库" />
+        {magieImages.length > 0 ? (
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+            {magieImages.map((img, i) => (
+              <div class={`rounded-2xl overflow-hidden ${i === 0 ? 'col-span-2 row-span-2' : ''}`}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-brand-green/50 mt-8">图片处理中，敬请期待...</p>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

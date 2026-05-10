@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { withBase, fixPublicPath } from '../utils/path';
+
+import eventGalleryData from '../data/event-gallery.json';
+
+const scenes = (eventGalleryData.scenes || []).map(s => ({ ...s, src: fixPublicPath(s.src) }));
+const materials = (eventGalleryData.materials || []).map(m => ({ ...m, src: fixPublicPath(m.src) }));
+const checkinMap = eventGalleryData.checkinMap ? fixPublicPath(eventGalleryData.checkinMap) : null;
+
+const checkpoints = [
+  { name: '上海展览中心', address: '上海市静安区延安中路1000号', desc: '在复古展馆建筑与春日花影之间，与手捧玉兰花环的 magie 一起打卡。', benefit: '完成打卡可领取「遇兰玉兰」春日贴纸一张。' },
+  { name: '世纪公园', address: '上海市浦东新区锦绣路1001号（世纪公园1号门）', desc: '在大片绿意和玉兰花开的公园里，记录一段轻松的春日散步。', benefit: '完成打卡可获得 magie 春游路线明信片一张。' },
+  { name: '文安路', address: '上海市静安区文安路（可导航至文安路与曲阜路附近）', desc: '沿着安静街巷寻找春天，把路边的玉兰花变成今日的小惊喜。', benefit: '完成打卡可领取「花路同行」限定电子徽章。' },
+  { name: '龙华寺', address: '上海市徐汇区龙华路2853号', desc: '在古寺与玉兰花影之间，和举旗的 magie 一起奔赴春光。', benefit: '完成打卡可获得玉兰祈愿签纸一张。' },
+  { name: '陆家嘴中心绿地', address: '上海市浦东新区陆家嘴环路717号', desc: '在城市天际线旁的绿地里，遇见属于都市春天的玉兰时刻。', benefit: '完成打卡可领取 magie 城市漫游贴纸一张。' },
+  { name: '徐家汇公园', address: '上海市徐汇区肇嘉浜路889号', desc: '在公园小径和春日花香中，和圆滚滚的 magie 一起慢下来。', benefit: '完成打卡可获得「忙里偷闲也发光」打卡卡片一张。' },
+  { name: '延中绿地', address: '上海市黄浦区金陵中路与黄陂南路交叉口附近', desc: '在城市中心的绿意里，捕捉玉兰花开与春风经过的瞬间。', benefit: '完成打卡可领取玉兰花瓣造型贴纸一张。' },
+  { name: '东方明珠滨江', address: '上海市浦东新区滨江大道2852号（东方明珠旅游码头 / 滨江步道一带）', desc: '在滨江风景与城市地标之间，拍下最有上海感的春日合影。', benefit: '完成打卡可获得「在春天里」限定电子相框。' },
+  { name: '白玉兰广场', address: '上海市虹口区东大名路501号', desc: '在白玉兰主题地标附近，开启一站充满品牌记忆点的春日打卡。', benefit: '完成打卡可领取 magie 小卡一张。' },
+];
+---
+
+<BaseLayout title="玉兰打卡">
+  <Navbar />
+
+  <main class="pt-24 pb-16" style="background: linear-gradient(to bottom, #ecff9f, #ffffff);">
+
+    <!-- Hero -->
+    <section class="py-20 px-4 text-center">
+      <h1 class="font-display text-4xl md:text-[56px] font-bold text-brand-green leading-tight">
+        玉见"兰"不住的美好
+      </h1>
+      <p class="mt-4 text-xl md:text-2xl text-brand-blue font-body">
+        2026年3-4月 · 户外玉兰打卡季
+      </p>
+    </section>
+
+    <!-- 活动标语 -->
+    <section class="px-4 pb-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-brand-lavender rounded-2xl px-8 py-6 text-center">
+          <p class="font-heading text-lg md:text-xl text-brand-green leading-relaxed">
+            赴一场玉兰之约，和magie一起，把春天拍进日常
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动介绍 -->
+    <section class="px-4 pb-16">
+      <div class="max-w-3xl mx-auto text-brand-green font-body text-base leading-relaxed space-y-4">
+        <p>每年3-4月，白玉兰盛花期，遇兰玉兰在城市里等你。</p>
+        <p>我们精选10-15个白玉兰密集点位，搭建magie主题打卡装置。</p>
+        <p>带上你的手机，和magie一起——</p>
+        <p class="pl-4 border-l-2 border-brand-gold">
+          圆滚滚比心、趴在草地上卖萌、头顶花苞壳子憨笑。
+        </p>
+        <p>把春天拍进日常，把美好分享给世界。</p>
+      </div>
+    </section>
+
+    <!-- 场景图 -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <SectionHeading title="打卡场景" subtitle="和magie一起，去发现身边的春天" />
+        {scenes.length > 0 ? (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            {scenes.map((img, i) => (
+              <div class={`rounded-2xl overflow-hidden ${i === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}>
+                <img src={img.src} alt={img.alt} loading="lazy" class="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-brand-green/50 mt-8">场景图加载中...</p>
+        )}
+      </div>
+    </section>
+
+    <!-- 打卡地图 -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeading title="打卡地图" subtitle="找到你身边的玉兰打卡点" />
+        <div class="mt-8 bg-brand-light-blue rounded-2xl overflow-hidden" style="height: 400px;">
+          {checkinMap ? (
+            <img src={checkinMap} alt="打卡地图" class="w-full h-full object-contain" loading="lazy" />
+          ) : (
+            <div class="w-full h-full flex items-center justify-center relative">
+              <p class="text-brand-green/40 font-body text-sm">打卡地图加载中...</p>
+              <!-- 占位标记点 -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="grid grid-cols-3 gap-8 opacity-30">
+                  <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+                  <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+                  <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+                  <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+                  <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- 点位列表 -->
+        <div class="mt-6 space-y-3">
+          {checkpoints.map((cp, i) => (
+            <div class="group bg-white rounded-xl px-5 py-3 shadow-sm hover:shadow-md transition-shadow cursor-default">
+              <div class="flex items-start gap-3">
+                <span class="text-brand-gold text-lg flex-shrink-0">📍</span>
+                <div class="min-w-0">
+                  <p class="font-heading font-bold text-brand-green text-sm">
+                    {cp.name}
+                  </p>
+                  <p class="text-xs text-brand-green/50 font-body mt-0.5 truncate">{cp.address}</p>
+                </div>
+              </div>
+              <!-- Hover card -->
+              <div class="mt-2 hidden group-hover:block bg-white rounded-xl p-3 shadow-md text-xs text-brand-green/70 font-body border border-brand-light-green/30 space-y-1">
+                <p class="font-bold text-brand-green text-sm">{cp.name}</p>
+                <p>📍 {cp.address}</p>
+                <p>{cp.desc}</p>
+                <p class="text-brand-gold font-bold">{cp.benefit}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 打卡福利 -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeading title="打卡福利" />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <!-- 基础福利 -->
+          <div class="bg-brand-fresh-green rounded-2xl p-6 text-center">
+            <div class="text-4xl mb-3">🌸</div>
+            <h3 class="font-heading font-bold text-brand-green text-lg mb-3">基础福利</h3>
+            <div class="text-sm text-brand-green/80 font-body leading-relaxed space-y-1">
+              <p>任意点位打卡</p>
+              <p>发布社交平台</p>
+              <p>带话题标签</p>
+              <div class="my-3 h-px bg-brand-green/20"></div>
+              <p class="font-bold">领取magie贴纸</p>
+              <p class="font-bold">/钥匙扣小样</p>
+            </div>
+          </div>
+          <!-- 进阶福利 -->
+          <div class="bg-brand-lavender rounded-2xl p-6 text-center">
+            <div class="text-4xl mb-3">🌿</div>
+            <h3 class="font-heading font-bold text-brand-green text-lg mb-3">进阶福利</h3>
+            <div class="text-sm text-brand-green/80 font-body leading-relaxed space-y-1">
+              <p>累计打卡3个</p>
+              <p>及以上点位</p>
+              <div class="my-3 h-px bg-brand-green/20"></div>
+              <p class="font-bold">兑换玉兰书签</p>
+              <p class="font-bold">或magie徽章</p>
+            </div>
+          </div>
+          <!-- 超级福利 -->
+          <div class="bg-brand-gold rounded-2xl p-6 text-center">
+            <div class="text-4xl mb-3">✨</div>
+            <h3 class="font-heading font-bold text-brand-green text-lg mb-3">超级福利</h3>
+            <div class="text-sm text-brand-green/80 font-body leading-relaxed space-y-1">
+              <p>参与话题挑战赛</p>
+              <p>评选最美打卡者</p>
+              <div class="my-3 h-px bg-brand-green/20"></div>
+              <p class="font-bold">赢magie全套周边</p>
+              <p class="font-bold">+年度文创礼盒</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 话题标签 -->
+    <section class="py-12 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h3 class="font-heading text-xl font-bold text-brand-green mb-6">参与话题</h3>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <span class="px-5 py-2.5 rounded-full bg-brand-bg border border-brand-green text-brand-green font-body text-sm">#玉见兰不住的美好</span>
+          <span class="px-5 py-2.5 rounded-full bg-brand-bg border border-brand-green text-brand-green font-body text-sm">#遇兰玉兰magie</span>
+          <span class="px-5 py-2.5 rounded-full bg-brand-bg border border-brand-green text-brand-green font-body text-sm">#玉兰鸡是花苞变的</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA 按钮组 -->
+    <section class="py-12 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#map" class="px-8 py-3 rounded-full bg-brand-blue text-white font-body text-center hover:opacity-90 transition-opacity">
+            查看打卡地图
+          </a>
+          <button class="px-8 py-3 rounded-full bg-brand-green text-brand-bg font-body hover:opacity-90 transition-opacity">
+            上传打卡照片
+          </button>
+          <a href={withBase('/products')} class="px-8 py-3 rounded-full bg-brand-gold text-white font-body text-center hover:opacity-90 transition-opacity">
+            购买打卡限定款
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动物料 -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <SectionHeading title="活动物料" />
+        {materials.length > 0 ? (
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+            {materials.map((img) => (
+              <div class="rounded-2xl overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" class="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-brand-green/50 mt-8">物料图加载中...</p>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import { withBase } from '../utils/path';
+const cards = [
+  {
+    title: '每一朵玉兰，都是城市写给春天的信',
+    desc: '从城市里的玉兰花开，遇见属于你的春日片刻。',
+    href: withBase('/story'),
+    label: '品牌故事',
+    bg: 'bg-brand-lavender/40',
+    hoverBg: 'hover:bg-brand-lavender/60',
+    ip: withBase('/images/ip/magie-06.webp'),
+  },
+  {
+    title: '你好，我是 magie',
+    desc: '圆滚滚的玉兰鸡，不完美也可以乐乐呵呵。',
+    href: withBase('/magie'),
+    label: '遇见 magie',
+    bg: 'bg-brand-fresh-green/40',
+    hoverBg: 'hover:bg-brand-fresh-green/60',
+    ip: withBase('/images/ip/magie-07.webp'),
+  },
+  {
+    title: '把春天，藏进日常里',
+    desc: '从包挂、手账到香氛，把"兰不住的美好"带回家。',
+    href: withBase('/products'),
+    label: '春日好物',
+    bg: 'bg-brand-light-blue/50',
+    hoverBg: 'hover:bg-brand-light-blue/70',
+    ip: withBase('/images/ip/magie-08.webp'),
+  },
+];
+---
+
+<section class="py-16 md:py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      {cards.map((card) => (
+        <a
+          href={card.href}
+          class={`group relative overflow-hidden rounded-3xl ${card.bg} ${card.hoverBg} p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+        >
+          <!-- IP character decoration -->
+          <div class="absolute -bottom-2 -right-2 w-20 h-20 opacity-20 group-hover:opacity-30 transition-opacity">
+            <img src={card.ip} alt="" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+
+          <!-- Label -->
+          <span class="inline-block text-xs font-body text-brand-green/60 tracking-wider mb-3">
+            {card.label}
+          </span>
+
+          <!-- Title -->
+          <h3 class="font-heading text-lg md:text-xl font-bold text-brand-green leading-snug mb-2 pr-8">
+            {card.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm text-brand-green/60 font-body leading-relaxed pr-8">
+            {card.desc}
+          </p>
+
+          <!-- Arrow -->
+          <div class="mt-4 inline-flex items-center gap-1 text-sm text-brand-green/50 group-hover:text-brand-green/80 transition-colors">
+            <span>探索</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import { withBase } from '../utils/path';
+const sceneImages = [
+  withBase('/images/events/scene-1.webp'),
+  withBase('/images/events/scene-2.webp'),
+  withBase('/images/events/scene-3.webp'),
+];
+---
+
+<section class="py-16 md:py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-lavender/30 via-brand-bg/40 to-brand-fresh-green/20 p-6 md:p-10">
+
+      <div class="absolute top-4 right-4 w-3 h-3 rounded-full bg-brand-pink/30"></div>
+      <div class="absolute bottom-8 left-8 w-2 h-2 rounded-full bg-brand-gold/30"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Left: Copy -->
+        <div class="text-center md:text-left">
+          <h2 class="font-heading text-xl md:text-2xl font-bold text-brand-green mb-2">
+            玉见"兰"不住的美好
+          </h2>
+          <p class="text-sm text-brand-green/50 font-body mb-1">
+            2026年3-4月 · 户外玉兰打卡季
+          </p>
+          <p class="text-sm text-brand-green/60 font-body leading-relaxed mb-6 max-w-sm mx-auto md:mx-0">
+            跟着 magie 的花路地图，在城市里寻找春天。
+          </p>
+          <a
+            href={withBase('/checkin')}
+            class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-brand-green text-white font-body text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+          >
+            查看打卡路线
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: 3 scene images in a row -->
+        <div class="flex gap-3 justify-center md:justify-end">
+          <img
+            src={sceneImages[0]}
+            alt="玉兰打卡季"
+            class="w-[40%] md:w-[38%] h-auto object-cover rounded-2xl shadow-sm"
+            loading="lazy"
+          />
+          <img
+            src={sceneImages[1]}
+            alt="玉兰打卡季"
+            class="w-[28%] md:w-[26%] h-auto object-cover rounded-2xl shadow-sm"
+            loading="lazy"
+          />
+          <img
+            src={sceneImages[2]}
+            alt="玉兰打卡季"
+            class="w-[28%] md:w-[26%] h-auto object-cover rounded-2xl shadow-sm"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

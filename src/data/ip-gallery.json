@@ -1,0 +1,86 @@
+{
+  "title": "magie 图库",
+  "description": "玉兰精灵magie的百变日常",
+  "images": [
+    {
+      "src": "/public/images/ip/magie-01.webp",
+      "alt": "magie 第1张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-02.webp",
+      "alt": "magie 第2张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-03.webp",
+      "alt": "magie 第3张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-04.webp",
+      "alt": "magie 第4张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-05.webp",
+      "alt": "magie 第5张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-06.webp",
+      "alt": "magie 第6张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-07.webp",
+      "alt": "magie 第7张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-08.webp",
+      "alt": "magie 第8张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-09.webp",
+      "alt": "magie 第9张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-10.webp",
+      "alt": "magie 第10张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-11.webp",
+      "alt": "magie 第11张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-12.webp",
+      "alt": "magie 第12张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-13.webp",
+      "alt": "magie 第13张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-14.webp",
+      "alt": "magie 第14张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-15.webp",
+      "alt": "magie 第15张",
+      "caption": ""
+    },
+    {
+      "src": "/public/images/ip/magie-16.webp",
+      "alt": "magie 第16张",
+      "caption": ""
+    }
+  ]
+}

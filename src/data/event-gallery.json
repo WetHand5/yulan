@@ -1,0 +1,68 @@
+{
+  "title": "玉兰打卡季",
+  "scenes": [
+    {
+      "src": "/public/images/events/scene-1.webp",
+      "alt": "场景效果图 1"
+    },
+    {
+      "src": "/public/images/events/scene-2.webp",
+      "alt": "场景效果图 2"
+    },
+    {
+      "src": "/public/images/events/scene-3.webp",
+      "alt": "场景效果图 3"
+    },
+    {
+      "src": "/public/images/events/scene-4.webp",
+      "alt": "场景效果图 4"
+    },
+    {
+      "src": "/public/images/events/scene-5.webp",
+      "alt": "场景效果图 5"
+    },
+    {
+      "src": "/public/images/events/scene-6.webp",
+      "alt": "场景效果图 6"
+    },
+    {
+      "src": "/public/images/events/scene-7.webp",
+      "alt": "场景效果图 7"
+    }
+  ],
+  "materials": [
+    {
+      "src": "/public/images/events/checkin-map.webp",
+      "alt": "活动物料 1"
+    },
+    {
+      "src": "/public/images/events/poster.webp",
+      "alt": "活动物料 2"
+    },
+    {
+      "src": "/public/images/events/ticket.webp",
+      "alt": "活动物料 3"
+    },
+    {
+      "src": "/public/images/events/spray-paint.webp",
+      "alt": "活动物料 4"
+    },
+    {
+      "src": "/public/images/events/wristband-1.webp",
+      "alt": "活动物料 5"
+    },
+    {
+      "src": "/public/images/events/wristband-2.webp",
+      "alt": "活动物料 6"
+    },
+    {
+      "src": "/public/images/events/wristband-render-1.webp",
+      "alt": "活动物料 7"
+    },
+    {
+      "src": "/public/images/events/wristband-render-2.webp",
+      "alt": "活动物料 8"
+    }
+  ],
+  "checkinMap": "/public/images/events/checkin-map.webp"
+}
