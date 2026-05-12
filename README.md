@@ -1,6 +1,7 @@
 # 遇兰玉兰 — 品牌网站
 
 「遇兰玉兰」文创品牌官方网站，玉见兰不住的美好，忙里偷闲也发光。
+ https://wethand5.github.io/yulan/
 
 ## 技术栈
 
@@ -30,51 +31,6 @@ yulan_site/
 └── package.json
 ```
 
-## 本地开发
-
-```bash
-# 安装依赖
-npm install
-
-# 处理图片（需要原始素材目录 ../遇兰玉兰网站图片/）
-npm run prepare:images
-
-# 生成数据（依赖上一步的 manifest.json）
-npm run generate:data
-
-# 启动开发服务器
-npm run dev
-
-# 构建生产版本
-npm run build
-
-# 预览构建结果
-npm run preview
-```
-
-## 图片处理
-
-`npm run prepare:images` 会从 `../遇兰玉兰网站图片/` 读取原始素材，使用 Sharp 处理后输出到 `public/images/`。
-
-- 自动限制每类图片数量，避免 public 过大
-- 输出 WebP 格式（logo 保留 PNG）
-- 生成 `public/images/manifest.json` 记录图片信息
-
-## GitHub Pages 部署
-
-1. 推送代码到 GitHub 仓库
-2. 在仓库 Settings → Pages 中选择 GitHub Actions 作为 Source
-3. 推送到 main 分支会自动触发部署
-
-**注意：** 如果仓库名不是 `username.github.io`，需要在 `astro.config.mjs` 中设置 `base`：
-
-```js
-export default defineConfig({
-  base: '/你的仓库名',
-  // ...
-});
-```
-
 ## 素材来源
 
 - 品牌素材由「遇兰玉兰」品牌方提供
@@ -94,3 +50,4 @@ Copyright © 2026 遇兰玉兰. All rights reserved.
 - 将本仓库内容用于任何商业目的
 
 本仓库不采用 MIT、Apache、GPL 等允许商用的开源许可证。详见 [LICENSE](./LICENSE)。
+
