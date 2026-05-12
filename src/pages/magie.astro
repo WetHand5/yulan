@@ -3,12 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import ImageGallery from '../components/ImageGallery.astro';
+import MagieUniverse from '../components/MagieUniverse.tsx';
 import { fixPublicPath, withBase } from '../utils/path';
 
 import ipGalleryData from '../data/ip-gallery.json';
 
-const magieImages = ipGalleryData.images.map(img => ({
+const magieImages = ipGalleryData.images
+  .filter(img => !img.src.includes('magie-01'))
+  .map(img => ({
   ...img,
   src: fixPublicPath(img.src),
 }));
@@ -132,26 +134,13 @@ const magieHero = magieImages[0]?.src || withBase('/images/placeholders/placehol
       </div>
     </section>
 
-    <!-- IP 图库 -->
+    <!-- magie 宇宙 -->
     <section class="py-16 px-4">
       <div class="max-w-6xl mx-auto">
-        <SectionHeading title="magie 图库" />
-        {magieImages.length > 0 ? (
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-            {magieImages.map((img, i) => (
-              <div class={`rounded-2xl overflow-hidden ${i === 0 ? 'col-span-2 row-span-2' : ''}`}>
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p class="text-center text-brand-green/50 mt-8">图片处理中，敬请期待...</p>
-        )}
+        <SectionHeading title="magie 宇宙" />
+        <div class="mt-8">
+          <MagieUniverse client:load images={magieImages} />
+        </div>
       </div>
     </section>
   </main>

@@ -1,23 +1,33 @@
 import { useEffect, useRef } from 'react';
 
-const COLORS = ['#f2cdd0', '#deccda', '#daf4a2', '#d2d388', '#f3be41', '#cbd9ea'];
-const MAX_PETALS = 35;
+// Geometric ambient particles — rectangles and circles
+const SHAPE_COLORS = ['#435836', '#B3AEB4', '#D0CAAC'] as const;
+const MAX_PARTICLES = 30;
 
-interface Petal {
+type ShapeType = 'rect-green' | 'rect-gray' | 'circle';
+
+interface GeoParticle {
   x: number;
   y: number;
-  size: number;
   speedY: number;
   speedX: number;
   rotation: number;
   rotationSpeed: number;
   opacity: number;
-  color: string;
+  shape: ShapeType;
+  size: number;
+}
+
+function randomShape(): ShapeType {
+  const r = Math.random();
+  if (r < 0.33) return 'rect-green';
+  if (r < 0.66) return 'rect-gray';
+  return 'circle';
 }
 
 export default function PetalCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const petalsRef = useRef<Petal[]>([]);
+  const particlesRef = useRef<GeoParticle[]>([]);
   const animRef = useRef<number>(0);
   const reducedMotion = useRef(false);
 
@@ -37,46 +47,58 @@ export default function PetalCanvas() {
     resize();
     window.addEventListener('resize', resize);
 
-    const createPetal = (startTop = true): Petal => ({
+    const createParticle = (startTop = true): GeoParticle => ({
       x: Math.random() * canvas.width,
-      y: startTop ? -20 : Math.random() * canvas.height,
-      size: Math.random() * 10 + 5,
-      speedY: Math.random() * 0.6 + 0.2,
-      speedX: Math.random() * 0.4 - 0.2,
+      y: startTop ? -40 : Math.random() * canvas.height,
+      size: 30,
+      speedY: Math.random() * 0.4 + 0.15,
+      speedX: Math.random() * 0.3 - 0.15,
       rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.02,
-      opacity: Math.random() * 0.45 + 0.2,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      rotationSpeed: (Math.random() - 0.5) * 0.005,
+      opacity: Math.random() * 0.35 + 0.15,
+      shape: randomShape(),
     });
 
-    // Initialize petals
-    for (let i = 0; i < MAX_PETALS; i++) {
-      petalsRef.current.push(createPetal(false));
+    for (let i = 0; i < MAX_PARTICLES; i++) {
+      particlesRef.current.push(createParticle(false));
     }
 
-    const drawPetal = (p: Petal) => {
+    const getColor = (shape: ShapeType): string => {
+      switch (shape) {
+        case 'rect-green': return SHAPE_COLORS[0];
+        case 'rect-gray': return SHAPE_COLORS[1];
+        case 'circle': return SHAPE_COLORS[2];
+      }
+    };
+
+    const drawParticle = (p: GeoParticle) => {
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rotation);
       ctx.globalAlpha = p.opacity;
-      ctx.fillStyle = p.color;
-      ctx.beginPath();
-      const s = p.size;
-      ctx.ellipse(0, 0, s, s * 0.6, 0, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.fillStyle = getColor(p.shape);
+
+      if (p.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      }
+
       ctx.restore();
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const p of petalsRef.current) {
+      for (const p of particlesRef.current) {
         p.y += p.speedY;
-        p.x += p.speedX + Math.sin(p.y * 0.01) * 0.3;
+        p.x += p.speedX + Math.sin(p.y * 0.008) * 0.2;
         p.rotation += p.rotationSpeed;
-        if (p.y > canvas.height + 20) {
-          Object.assign(p, createPetal(true));
+        if (p.y > canvas.height + 40) {
+          Object.assign(p, createParticle(true));
         }
-        drawPetal(p);
+        drawParticle(p);
       }
       animRef.current = requestAnimationFrame(animate);
     };

@@ -7,20 +7,24 @@ import { withBase, fixPublicPath } from '../utils/path';
 
 import ipGalleryData from '../data/ip-gallery.json';
 const magieImages = ipGalleryData.images.map(img => ({ ...img, src: fixPublicPath(img.src) }));
+const storyHeroBg = withBase('/images/story/story-hero.webp');
 ---
 
 <BaseLayout title="品牌故事">
   <Navbar />
 
-  <main class="pt-24 pb-16">
-    <!-- Hero -->
-    <section class="py-20 px-4 text-center">
-      <h1 class="font-display text-4xl md:text-6xl font-bold text-brand-green">品牌故事</h1>
-      <p class="mt-4 text-lg text-brand-green/60 font-body">从一朵玉兰花，到一个关于美好的故事</p>
-    </section>
+  <!-- Hero background image — full viewport first screen, no overlay content -->
+  <section class="story-hero relative overflow-hidden" style={`--story-hero-bg: url('${storyHeroBg}');`}>
+  </section>
 
+  <main class="pb-16 pt-16">
+    <!-- Title section after hero -->
+    <section class="py-12 px-4 text-center">
+      <h1 class="font-display text-4xl md:text-6xl font-bold text-brand-green">品牌故事</h1>
+      <p class="mt-4 text-lg md:text-xl text-brand-green/60 font-body">从一朵玉兰花，到一个关于美好的故事</p>
+    </section>
     <!-- 缘起 -->
-    <section class="py-16 px-4">
+    <section class="py-12 px-4">
       <div class="max-w-4xl mx-auto">
         <SectionHeading title="缘起" />
         <div class="flex flex-col md:flex-row items-center gap-8 mt-8">
@@ -40,51 +44,31 @@ const magieImages = ipGalleryData.images.map(img => ({ ...img, src: fixPublicPat
       </div>
     </section>
 
-    <!-- 遇见 -->
-    <section class="py-16 px-4 bg-white/30">
-      <div class="max-w-4xl mx-auto">
+    <!-- 遇见 — text only -->
+    <section class="py-12 px-4 bg-white/30">
+      <div class="max-w-3xl mx-auto">
         <SectionHeading title="遇见" />
-        <div class="flex flex-col md:flex-row-reverse items-center gap-8 mt-8">
-          <div class="w-full md:w-1/2">
-            <img
-              src={magieImages[1]?.src || withBase('/images/placeholders/placeholder-01.webp')}
-              alt="遇见"
-              class="w-full rounded-3xl shadow-sm"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full md:w-1/2 space-y-4 text-brand-green/70 font-body leading-relaxed">
-            <p>遇兰玉兰，取"遇见兰不住的美好"之意。"兰不住"是"拦不住"的谐音——那些拦不住的开心、拦不住的灵感、拦不住的想要好好生活的念头。</p>
-            <p>我们相信，美好不需要刻意追寻，它就在你忙里偷闲的那一刻，悄悄绽放。</p>
-          </div>
+        <div class="mt-8 space-y-4 text-brand-green/70 font-body leading-relaxed text-center">
+          <p>遇兰玉兰，取"遇见兰不住的美好"之意。"兰不住"是"拦不住"的谐音——那些拦不住的开心、拦不住的灵感、拦不住的想要好好生活的念头。</p>
+          <p>我们相信，美好不需要刻意追寻，它就在你忙里偷闲的那一刻，悄悄绽放。</p>
         </div>
       </div>
     </section>
 
-    <!-- magie 的诞生 -->
-    <section class="py-16 px-4">
-      <div class="max-w-4xl mx-auto">
+    <!-- magie 的诞生 — text only -->
+    <section class="py-12 px-4">
+      <div class="max-w-3xl mx-auto">
         <SectionHeading title="magie 的诞生" />
-        <div class="flex flex-col md:flex-row items-center gap-8 mt-8">
-          <div class="w-full md:w-1/2">
-            <img
-              src={magieImages[2]?.src || withBase('/images/placeholders/placeholder-01.webp')}
-              alt="magie的诞生"
-              class="w-full rounded-3xl shadow-sm"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full md:w-1/2 space-y-4 text-brand-green/70 font-body leading-relaxed">
-            <p>magie 是从玉兰花苞里蹦出来的小精灵。她圆滚滚、胖嘟嘟，总是笑嘻嘻的。</p>
-            <p>有人说她像只小鸡，她才不在意呢——"胖点又怎样，开心最重要！"</p>
-            <p>magie 的名字来自"magic"，因为她相信：每一天都藏着小小的魔法，只要你愿意去发现。</p>
-          </div>
+        <div class="mt-8 space-y-4 text-brand-green/70 font-body leading-relaxed text-center">
+          <p>magie 是从玉兰花苞里蹦出来的小精灵。她圆滚滚、胖嘟嘟，总是笑嘻嘻的。</p>
+          <p>有人说她像只小鸡，她才不在意呢——"胖点又怎样，开心最重要！"</p>
+          <p>magie 的名字来自"magic"，因为她相信：每一天都藏着小小的魔法，只要你愿意去发现。</p>
         </div>
       </div>
     </section>
 
     <!-- 品牌理念 -->
-    <section class="py-16 px-4 bg-brand-lavender/20">
+    <section class="py-12 px-4 bg-brand-lavender/20">
       <div class="max-w-4xl mx-auto text-center">
         <SectionHeading title="品牌理念" />
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -108,7 +92,7 @@ const magieImages = ipGalleryData.images.map(img => ({ ...img, src: fixPublicPat
     </section>
 
     <!-- 我们的邀请 -->
-    <section class="py-16 px-4">
+    <section class="py-12 px-4">
       <div class="max-w-3xl mx-auto text-center">
         <SectionHeading title="我们的邀请" />
         <p class="text-brand-green/70 font-body leading-relaxed mt-6">
@@ -128,3 +112,13 @@ const magieImages = ipGalleryData.images.map(img => ({ ...img, src: fixPublicPat
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .story-hero {
+    min-height: 100svh;
+    background-image: var(--story-hero-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>

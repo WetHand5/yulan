@@ -1,0 +1,47 @@
+---
+import { withBase } from '../utils/path';
+
+const transitionShape = withBase('/images/home/home-transition-shape.webp');
+---
+
+<section class="px-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- English title centered, Chinese subtitle left-aligned with title's T -->
+    <div class="pt-16 md:pt-24 pb-12 md:pb-16 flex justify-center">
+      <div class="inline-flex flex-col items-start" style="width: 70%;">
+        <h2 class="font-display font-bold text-brand-green tracking-widest whitespace-nowrap self-center" style="font-size: clamp(1.5rem, 5vw, 3.75rem);">
+          TO SPRING TO FEEL TO BE
+        </h2>
+        <p class="mt-4 text-lg md:text-xl lg:text-2xl text-brand-green/60 font-body w-full">
+          玉见兰不住的美好，忙里偷闲也发光
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Unified bg-white/40 zone -->
+<section class="bg-white/40 px-4 pb-16 md:pb-24 relative" id="transition-bg-zone">
+  <div class="max-w-6xl mx-auto">
+    <!-- Geometric shape — absolute positioned to straddle bg boundary -->
+    <div class="transition-shape-wrapper absolute left-1/2 -translate-x-1/2" style="top: 0;">
+      <img
+        src={transitionShape}
+        alt="品牌几何图形"
+        class="transition-shape w-48 md:w-64 lg:w-72 h-auto object-contain"
+        loading="lazy"
+        id="transition-shape-img"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .transition-shape-wrapper {
+    overflow: visible;
+  }
+  .transition-shape {
+    transform: translate(-382px, 2px) scale(1.8);
+  }
+</style>
+

@@ -5,49 +5,49 @@
 /* 思源宋体 (Source Han Serif CN) */
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-ExtraLight.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-ExtraLight.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-Light.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-Regular.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-Medium.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-SemiBold.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-SemiBold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Han Serif CN";
-  src: url("/fonts/SourceHanSerifCN-Heavy.otf") format("opentype");
+  src: url("/yulan/fonts/SourceHanSerifCN-Heavy.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -56,7 +56,7 @@
 /* 侯尊宋体 (南西初夏宋) */
 @font-face {
   font-family: "HouZun Song";
-  src: url("/fonts/NanxiChuxiaSong.ttf") format("truetype");
+  src: url("/yulan/fonts/NanxiChuxiaSong.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -73,10 +73,10 @@
   --color-brand-blue: #7ba3d6;
   --color-brand-light-blue: #cbd9ea;
 
-  /* 大标题: 平方星辰体(待补充) → fallback 系统无衬线体 */
-  --font-display: "PingFang XingChen", system-ui, -apple-system, "Segoe UI", sans-serif;
-  /* 小标题: 侯尊宋体 → fallback 思源宋体 */
-  --font-heading: "HouZun Song", "Source Han Serif CN", "Noto Serif SC", serif;
+  /* 大标题: 思源宋体 */
+  --font-display: "Source Han Serif CN", "Noto Serif SC", serif;
+  /* 小标题: 思源宋体 */
+  --font-heading: "Source Han Serif CN", "Noto Serif SC", serif;
   /* 正文/按钮: 思源宋体 */
   --font-body: "Source Han Serif CN", "Noto Serif SC", serif;
 }
@@ -91,10 +91,20 @@ body {
   color: var(--color-brand-green);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+}
+
+/* Home hero keeps tighter spacing */
+.home-hero body,
+.home-hero p,
+.home-hero a {
+  letter-spacing: 0.02em;
 }
 
 ::selection {

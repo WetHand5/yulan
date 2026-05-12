@@ -2,97 +2,54 @@
 import PetalCanvas from './PetalCanvas.tsx';
 import { withBase } from '../utils/path';
 
-const heroBgWebp = withBase('/images/backgrounds/hero-bg-spring.webp');
-const heroBgPng = withBase('/images/backgrounds/hero-bg-spring.png');
-
-// 10张IP图，绝对定位错落排布（跳过magie-01）
-// top/left 为百分比，确保不重叠
-const ipImages = [
-  { src: withBase('/images/ip/magie-02.webp'), delay: '0s',   top: '5%',   left: '10%'  },
-  { src: withBase('/images/ip/magie-03.webp'), delay: '0.4s', top: '5%',   left: '68%' },
-  { src: withBase('/images/ip/magie-04.webp'), delay: '0.8s', top: '25%',  left: '35%' },
-  { src: withBase('/images/ip/magie-05.webp'), delay: '1.2s', top: '20%',  left: '85%' },
-  { src: withBase('/images/ip/magie-06.webp'), delay: '0.2s', top: '45%',  left: '2%'  },
-  { src: withBase('/images/ip/magie-07.webp'), delay: '0.6s', top: '50%',  left: '75%' },
-  { src: withBase('/images/ip/magie-08.webp'), delay: '1s',   top: '62%',  left: '25%' },
-  { src: withBase('/images/ip/magie-09.webp'), delay: '1.4s', top: '80%',  left: '80%' },
-  { src: withBase('/images/ip/magie-10.webp'), delay: '0.3s', top: '90%',  left: '5%'  },
-  { src: withBase('/images/ip/magie-11.webp'), delay: '0.7s', top: '78%',  left: '50%' },
-];
+const heroBg = withBase('/images/home/home-hero-bg.webp');
+const heroLogoBase = withBase('/images/home/home-hero-logo.webp');
+const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
 ---
 
-<section
-  class="home-hero relative overflow-hidden"
-  style={`--hero-bg: url('${heroBgWebp}'); --hero-bg-fallback: url('${heroBgPng}');`}
->
+<section class="home-hero relative overflow-hidden">
   <PetalCanvas client:load />
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 pb-16 min-h-screen flex items-center">
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+  <!-- Dark overlay for readability -->
+  <div class="absolute inset-0 bg-[#2a3a1e]/40 z-[1]"></div>
 
-      <!-- Left: Copy -->
-      <div class="order-2 md:order-1 text-center md:text-left">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-green text-xs font-body tracking-wider mb-8">
-          2026 春日玉兰季
-        </span>
+  <!-- Centered content -->
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-[100svh] px-4 text-center">
+    <div class="home-hero-logo relative w-[25.6rem] md:w-[32rem] lg:w-[38.4rem] mb-6">
+      <img
+        src={heroLogoBase}
+        alt="遇兰玉兰"
+        class="w-full h-auto object-contain"
+      />
+      <!-- Upper logo: position adjustable via CSS custom properties -->
+      <img
+        src={heroLogoUpper}
+        alt=""
+        class="home-hero-logo-upper absolute object-contain pointer-events-auto"
+        style="--logo-offset-x: -52px; --logo-offset-y: -35px; --logo-scale: 0.4; left: 50%; top: 50%; transform: translate(calc(-50% + var(--logo-offset-x)), calc(-50% + var(--logo-offset-y))) scale(var(--logo-scale)); width: 80%;"
+        id="hero-logo-upper"
+      />
+    </div>
+    <p class="text-white font-body text-base md:text-xl lg:text-2xl leading-relaxed tracking-wide mb-10">
+      玉见兰不住的美好，忙里偷闲也发光
+    </p>
 
-        <h1
-          class="font-heading font-bold text-brand-green leading-snug mb-8"
-          style="font-size: clamp(2.5rem, 7vw, 4.5rem);"
-        >
-          我们去春天<br/>
-          去感受春天<br/>
-          去成为春天
-        </h1>
-
-        <p class="text-base md:text-lg text-brand-green/70 font-body mb-8 max-w-md mx-auto md:mx-0">
-          玉见兰不住的美好，忙里偷闲也发光
-        </p>
-
-        <!-- Speech bubble -->
-        <div class="relative inline-block bg-white/70 backdrop-blur-sm rounded-2xl px-5 py-3 mb-10 shadow-sm max-w-xs mx-auto md:mx-0 md:ml-2">
-          <p class="text-sm text-brand-green/80 font-body leading-relaxed">
-            "胖点又怎样，开心最重要，一起去春天呀。"
-          </p>
-          <div class="absolute -bottom-2 left-6 md:left-8 w-4 h-4 bg-white/70 rotate-45"></div>
-        </div>
-
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a href={withBase('/products')} class="group inline-flex items-center justify-center gap-1.5 px-7 py-3 rounded-full bg-brand-gold text-white font-body font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-            奔赴春光
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-          </a>
-          <a href={withBase('/magie')} class="group inline-flex items-center justify-center gap-1.5 px-7 py-3 rounded-full bg-white/80 text-brand-green font-body font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ring-1 ring-brand-light-green/50">
-            遇见 magie
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: IP characters scattered -->
-      <div class="order-1 md:order-2 ip-scatter">
-        {ipImages.map((ip) => (
-          <div
-            class="animate-float-gentle ip-scatter-item"
-            style={`animation-delay: ${ip.delay}; top: ${ip.top}; left: ${ip.left};`}
-          >
-            <img
-              src={ip.src}
-              alt="magie"
-              class="w-full h-auto object-contain drop-shadow-sm hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
+    <!-- CTA pill buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href={withBase('/products')} class="group inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full bg-[#435836] text-white font-body text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+        奔赴春光
+        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+      <a href={withBase('/magie')} class="group inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full bg-[#D0CAAC] text-[#435836] font-body text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+        遇见 magie
+        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
     </div>
   </div>
 
   <!-- Scroll hint -->
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-green/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
     </svg>
   </div>
@@ -101,83 +58,126 @@ const ipImages = [
 <style>
   .home-hero {
     min-height: 100svh;
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 245, 0.84) 0%,
-        rgba(255, 255, 245, 0.64) 38%,
-        rgba(255, 255, 245, 0.30) 100%
-      ),
-      var(--hero-bg);
+    background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-  .ip-scatter {
-    position: relative;
-    width: 100%;
-    min-height: 420px;
-  }
-
-  .ip-scatter-item {
-    position: absolute;
-    width: 22%;
-  }
-
-  @media (min-width: 768px) {
-    .ip-scatter {
-      min-height: 520px;
-    }
-    .ip-scatter-item {
-      width: 24%;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .ip-scatter {
-      min-height: 580px;
-    }
-    .ip-scatter-item {
-      width: 26%;
-    }
+  .home-hero-logo {
+    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.25));
   }
 
   @media (max-width: 767px) {
-    .home-hero {
-      background-position: center bottom;
-      background-image:
-        linear-gradient(
-          180deg,
-          rgba(255, 255, 245, 0.88) 0%,
-          rgba(255, 255, 245, 0.72) 40%,
-          rgba(255, 255, 245, 0.40) 100%
-        ),
-        var(--hero-bg);
+    .home-hero-logo {
+      width: 22.4rem;
     }
-    .ip-scatter {
-      min-height: 280px;
-    }
-    .ip-scatter-item {
-      width: 18%;
-    }
-  }
-
-  @keyframes float-gentle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  .animate-float-gentle {
-    animation: float-gentle 4s ease-in-out infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-float-gentle {
-      animation: none;
-    }
     .animate-bounce {
       animation: none;
     }
   }
 </style>
+
+<script define:vars={{ heroBg }}>
+  document.querySelector('.home-hero').style.setProperty('--hero-bg', `url('${heroBg}')`);
+
+  const upperLogo = document.getElementById('hero-logo-upper');
+  if (upperLogo) {
+    const HOME_X = -52;
+    const HOME_Y = -35;
+    const HOME_SCALE = 0.4;
+    let dragging = false;
+    let startX = 0, startY = 0;
+
+    // Spring physics state
+    let posX = HOME_X, posY = HOME_Y;
+    let velX = 0, velY = 0;
+    let animId = 0;
+    let springing = false;
+
+    const SPRING_K = 0.15;   // spring stiffness
+    const DAMPING = 0.7;     // damping factor
+    const MASS = 1;
+
+    upperLogo.addEventListener('mousedown', (e) => {
+      dragging = true;
+      springing = false;
+      cancelAnimationFrame(animId);
+      startX = e.clientX - posX;
+      startY = e.clientY - posY;
+      e.preventDefault();
+    });
+
+    // Touch support
+    upperLogo.addEventListener('touchstart', (e) => {
+      dragging = true;
+      springing = false;
+      cancelAnimationFrame(animId);
+      const t = e.touches[0];
+      startX = t.clientX - posX;
+      startY = t.clientY - posY;
+      e.preventDefault();
+    }, { passive: false });
+
+    const onMove = (cx, cy) => {
+      if (!dragging) return;
+      posX = cx - startX;
+      posY = cy - startY;
+      upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
+      upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+    };
+
+    window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      const t = e.touches[0];
+      onMove(t.clientX, t.clientY);
+    }, { passive: false });
+
+    const startSpring = () => {
+      dragging = false;
+      springing = true;
+      velX = (posX - HOME_X) * 0.3;
+      velY = (posY - HOME_Y) * 0.3;
+      springLoop();
+    };
+
+    window.addEventListener('mouseup', startSpring);
+    window.addEventListener('touchend', startSpring);
+
+    const springLoop = () => {
+      const dx = posX - HOME_X;
+      const dy = posY - HOME_Y;
+
+      // Spring force: F = -k * displacement
+      const fx = -SPRING_K * dx;
+      const fy = -SPRING_K * dy;
+
+      // Update velocity: v += F / m
+      velX = (velX + fx / MASS) * DAMPING;
+      velY = (velY + fy / MASS) * DAMPING;
+
+      // Update position
+      posX += velX;
+      posY += velY;
+
+      upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
+      upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+
+      // Stop when close enough and nearly still
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(velX) < 0.1 && Math.abs(velY) < 0.1) {
+        posX = HOME_X;
+        posY = HOME_Y;
+        upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
+        upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+        springing = false;
+        return;
+      }
+
+      animId = requestAnimationFrame(springLoop);
+    };
+  }
+</script>

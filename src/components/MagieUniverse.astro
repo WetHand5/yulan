@@ -1,0 +1,75 @@
+---
+import { fixPublicPath } from '../utils/path';
+
+export interface Props {
+  images: { src: string; alt: string }[];
+}
+
+const { images } = Astro.props;
+
+// Scattered positions for the "universe" layout
+const positions = [
+  { top: '5%',  left: '5%',  w: '16%' },
+  { top: '2%',  left: '35%', w: '14%' },
+  { top: '8%',  left: '65%', w: '15%' },
+  { top: '8%',  left: '85%', w: '12%' },
+  { top: '30%', left: '10%', w: '13%' },
+  { top: '28%', left: '42%', w: '16%' },
+  { top: '35%', left: '72%', w: '14%' },
+  { top: '55%', left: '3%',  w: '14%' },
+  { top: '52%', left: '30%', w: '12%' },
+  { top: '50%', left: '58%', w: '16%' },
+  { top: '58%', left: '82%', w: '13%' },
+  { top: '75%', left: '8%',  w: '12%' },
+  { top: '78%', left: '38%', w: '15%' },
+  { top: '72%', left: '68%', w: '14%' },
+  { top: '80%', left: '88%', w: '11%' },
+  { top: '40%', left: '20%', w: '11%' },
+];
+---
+
+<div class="magie-universe relative w-full mx-auto overflow-hidden" style="height: 600px;">
+  {images.map((img, i) => {
+    const pos = positions[i % positions.length];
+    return (
+      <div
+        class="magie-universe-item absolute animate-float-gentle"
+        style={`top: ${pos.top}; left: ${pos.left}; width: ${pos.w}; animation-delay: ${(i * 0.3) % 3}s;`}
+      >
+        <img
+          src={img.src}
+          alt={img.alt}
+          class="w-full h-auto object-contain drop-shadow-sm hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+        />
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .magie-universe {
+    max-width: 72rem;
+  }
+
+  @media (max-width: 767px) {
+    .magie-universe {
+      height: 400px;
+    }
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float-gentle {
+      animation: none;
+    }
+  }
+</style>
