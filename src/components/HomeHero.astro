@@ -21,12 +21,12 @@ const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
         alt="遇兰玉兰"
         class="w-full h-auto object-contain"
       />
-      <!-- Upper logo: position adjustable via CSS custom properties -->
+      <!-- Upper logo: positioned relatively with percentage-based offset -->
       <img
         src={heroLogoUpper}
         alt=""
-        class="home-hero-logo-upper absolute object-contain pointer-events-auto"
-        style="--logo-offset-x: -52px; --logo-offset-y: -35px; --logo-scale: 0.4; left: 50%; top: 50%; transform: translate(calc(-50% + var(--logo-offset-x)), calc(-50% + var(--logo-offset-y))) scale(var(--logo-scale)); width: 80%;"
+        class="home-hero-logo-upper relative object-contain pointer-events-auto"
+        style="width: 85%; margin-top: -75%; margin-left: -1%; transform: scale(var(--logo-scale)); --logo-scale: 0.4;"
         id="hero-logo-upper"
       />
     </div>
@@ -86,28 +86,24 @@ const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
 
   const upperLogo = document.getElementById('hero-logo-upper');
   if (upperLogo) {
-    const HOME_X = -52;
-    const HOME_Y = -35;
+    const HOME_MARGIN_TOP = -42;   // percentage
+    const HOME_MARGIN_LEFT = 10;   // percentage
     const HOME_SCALE = 0.4;
     let dragging = false;
     let startX = 0, startY = 0;
 
-    // Spring physics state
-    let posX = HOME_X, posY = HOME_Y;
+    // Spring physics state (in pixels for smooth dragging)
+    let offsetX = 0, offsetY = 0;
     let velX = 0, velY = 0;
     let animId = 0;
     let springing = false;
-
-    const SPRING_K = 0.15;   // spring stiffness
-    const DAMPING = 0.7;     // damping factor
-    const MASS = 1;
 
     upperLogo.addEventListener('mousedown', (e) => {
       dragging = true;
       springing = false;
       cancelAnimationFrame(animId);
-      startX = e.clientX - posX;
-      startY = e.clientY - posY;
+      startX = e.clientX - offsetX;
+      startY = e.clientY - offsetY;
       e.preventDefault();
     });
 
@@ -117,17 +113,16 @@ const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
       springing = false;
       cancelAnimationFrame(animId);
       const t = e.touches[0];
-      startX = t.clientX - posX;
-      startY = t.clientY - posY;
+      startX = t.clientX - offsetX;
+      startY = t.clientY - offsetY;
       e.preventDefault();
     }, { passive: false });
 
     const onMove = (cx, cy) => {
       if (!dragging) return;
-      posX = cx - startX;
-      posY = cy - startY;
-      upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
-      upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+      offsetX = cx - startX;
+      offsetY = cy - startY;
+      upperLogo.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(var(--logo-scale))`;
     };
 
     window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
@@ -140,8 +135,8 @@ const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
     const startSpring = () => {
       dragging = false;
       springing = true;
-      velX = (posX - HOME_X) * 0.3;
-      velY = (posY - HOME_Y) * 0.3;
+      velX = offsetX * 0.3;
+      velY = offsetY * 0.3;
       springLoop();
     };
 
@@ -149,30 +144,25 @@ const heroLogoUpper = withBase('/images/home/home-hero-logo-upper.webp');
     window.addEventListener('touchend', startSpring);
 
     const springLoop = () => {
-      const dx = posX - HOME_X;
-      const dy = posY - HOME_Y;
+      // Spring force: F = -k * displacement (spring back to offset 0,0)
+      const fx = -0.15 * offsetX;
+      const fy = -0.15 * offsetY;
 
-      // Spring force: F = -k * displacement
-      const fx = -SPRING_K * dx;
-      const fy = -SPRING_K * dy;
-
-      // Update velocity: v += F / m
-      velX = (velX + fx / MASS) * DAMPING;
-      velY = (velY + fy / MASS) * DAMPING;
+      // Update velocity: v += F / m, with damping
+      velX = (velX + fx) * 0.7;
+      velY = (velY + fy) * 0.7;
 
       // Update position
-      posX += velX;
-      posY += velY;
+      offsetX += velX;
+      offsetY += velY;
 
-      upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
-      upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+      upperLogo.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(var(--logo-scale))`;
 
       // Stop when close enough and nearly still
-      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(velX) < 0.1 && Math.abs(velY) < 0.1) {
-        posX = HOME_X;
-        posY = HOME_Y;
-        upperLogo.style.setProperty('--logo-offset-x', posX + 'px');
-        upperLogo.style.setProperty('--logo-offset-y', posY + 'px');
+      if (Math.abs(offsetX) < 0.5 && Math.abs(offsetY) < 0.5 && Math.abs(velX) < 0.1 && Math.abs(velY) < 0.1) {
+        offsetX = 0;
+        offsetY = 0;
+        upperLogo.style.transform = 'scale(var(--logo-scale))';
         springing = false;
         return;
       }
